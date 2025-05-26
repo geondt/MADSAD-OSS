@@ -67,7 +67,7 @@ function getCityData(country: string, year: number) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { position: "top" },
+        legend: { position: "top" as const },
         title: { display: false },
       },
     },
