@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { Dropdown } from "@/components/ui/dropdown";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -119,25 +119,25 @@ export default function Home() {
             {/* Left: Charts stacked */}
             <div className="flex flex-col gap-4">
               <Card className="h-[360px]">
-                <CardContent>
+                <div className="p-4">
                   <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                     🌡️ Temperature Anomaly
                   </h2>
                   <div className="h-[240px]">
                     <Line data={chartData.tempChart} options={chartData.options} />
                   </div>
-                </CardContent>
+                </div>
               </Card>
 
               <Card className="h-[360px]">
-                <CardContent>
+                <div className="p-4">
                   <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
                     🧪 PM2.5 & NO₂ Concentrations
                   </h2>
                   <div className="h-[240px]">
                     <Line data={chartData.pollutantChart} options={chartData.options} />
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </div>
 
