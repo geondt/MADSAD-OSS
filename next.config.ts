@@ -2,10 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
-  output: "standalone", // 👈 isto é o que faltava!
+  output: "standalone", // ✅ mantém isto
 };
 
 export default nextConfig;
