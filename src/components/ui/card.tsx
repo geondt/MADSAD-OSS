@@ -1,14 +1,15 @@
-// src/components/ui/card.tsx
-import React from "react";
+import { cn } from "@/lib/utils"; // if you're using a utility for merging classes
+import { ReactNode } from "react";
 
-export function Card({ children }: { children: React.ReactNode }) {
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export function Card({ children, className }: CardProps) {
   return (
-    <div className="rounded-xl shadow-md border p-4 bg-white">
+    <div className={`rounded-lg shadow-md p-4 bg-white dark:bg-gray-800 ${className ?? ''}`}>
       {children}
     </div>
   );
-}
-
-export function CardContent({ children }: { children: React.ReactNode }) {
-  return <div className="p-2">{children}</div>;
 }
