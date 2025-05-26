@@ -1,6 +1,11 @@
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true, // ✅ ok!
+    appDir: true,
   },
+  output: "standalone", // 👈 isto é o que faltava!
 };
+
+export default nextConfig;
