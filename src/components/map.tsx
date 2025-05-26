@@ -28,7 +28,7 @@ export default function Map({ data }: { data: City[] }) {
 
   return (
     <MapContainer
-      center={[20, 0]}
+      center={[20, 0] as [number, number]}
       zoom={2}
       scrollWheelZoom={true}
       style={{ height: 400, width: "100%" }}
