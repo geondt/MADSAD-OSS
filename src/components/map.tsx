@@ -32,11 +32,12 @@ export default function Map({ data }: { data: City[] }) {
 
   return (
     <MapContainer
-      center={mapCenter}
+      center={[20, 0] as [number, number]}
       zoom={2}
       scrollWheelZoom={true}
       style={{ height: 400, width: "100%" }}
     >
+
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
