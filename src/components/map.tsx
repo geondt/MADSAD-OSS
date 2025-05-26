@@ -2,7 +2,7 @@
 
 import { MapContainer, TileLayer, Circle, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { LatLngExpression } from "leaflet"; // ✅ importação do tipo correto
+import L from "leaflet";
 
 type City = {
   city: string;
@@ -29,10 +29,11 @@ export default function Map({ data }: { data: City[] }) {
 
   // ✅ Centro do mapa com tipo explícito para evitar erro no build
   const mapCenter: [number, number] = [20, 0];
+  
 
   return (
     <MapContainer
-      center={[20, 0] as [number, number]}
+      center={new L.LatLng(20, 0) as any}
       zoom={2}
       scrollWheelZoom={true}
       style={{ height: 400, width: "100%" }}
