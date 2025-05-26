@@ -28,7 +28,7 @@ export default function Map({ data }: { data: City[] }) {
   }
 
   // ✅ Centro do mapa com tipo explícito para evitar erro no build
-  const mapCenter: LatLngExpression = [20, 0];
+  const mapCenter: [number, number] = [20, 0];
 
   return (
     <MapContainer
