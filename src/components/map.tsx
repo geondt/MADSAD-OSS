@@ -2,6 +2,7 @@
 
 import { MapContainer, TileLayer, Circle, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { LatLngExpression } from "leaflet"; // ✅ importação do tipo correto
 
 type City = {
   city: string;
@@ -26,9 +27,12 @@ export default function Map({ data }: { data: City[] }) {
     console.warn("⚠️ Cidades com coordenadas ou temperatura inválidas:", invalidCities);
   }
 
+  // ✅ Centro do mapa com tipo explícito para evitar erro no build
+  const mapCenter: LatLngExpression = [20, 0];
+
   return (
     <MapContainer
-      center={[20, 0] as [number, number]}
+      center={mapCenter}
       zoom={2}
       scrollWheelZoom={true}
       style={{ height: 400, width: "100%" }}
@@ -48,7 +52,7 @@ export default function Map({ data }: { data: City[] }) {
         .map((city, idx) => (
           <Circle
             key={idx}
-            center={[city.lat, city.lon]}
+            center={[city.lat, city.lon] as [number, number]} // ✅ também tipado corretamente
             radius={10000 + Math.abs(city.temp_anomaly) * 30000}
             pathOptions={{ color: city.temp_anomaly > 0 ? "red" : "blue" }}
           >
@@ -64,4 +68,3 @@ export default function Map({ data }: { data: City[] }) {
     </MapContainer>
   );
 }
-
