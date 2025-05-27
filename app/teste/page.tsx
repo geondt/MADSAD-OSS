@@ -1,3 +1,3 @@
 export default function Teste() {
-  return <h1>✅ A rota /teste está a funcionar!</h1>;
+  return <h1>🧪 Teste 2 — App Router ativo!</h1>;
 }
